@@ -10,6 +10,7 @@ export 'src/analytics/analytics.dart'
         NoWiredashInstanceFoundException,
         TooManyEventParametersException,
         WiredashAnalytics;
+export 'src/core/listeners/listeners.dart';
 export 'src/core/options/wiredash_options_data.dart';
 export 'src/core/theme/wiredash_theme_data.dart';
 export 'src/core/widgets/confidential.dart';

@@ -53,6 +53,7 @@ class Wiredash extends StatefulWidget {
     this.theme,
     this.feedbackOptions,
     this.psOptions,
+    this.listeners,
     this.padding,
     this.collectMetaData,
     required this.child,
@@ -96,6 +97,9 @@ class Wiredash extends StatefulWidget {
 
   /// Customize when to show the promoter score flow
   final PsOptions? psOptions;
+
+  /// Listen to events like when the user submitted feedback or promoter score.
+  final WiredashListeners? listeners;
 
   /// Default visual properties, like colors and fonts for the Wiredash bottom
   /// sheet and the screenshot capture UI.

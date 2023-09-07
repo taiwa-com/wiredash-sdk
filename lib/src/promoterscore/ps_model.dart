@@ -112,6 +112,9 @@ class PsModel extends ChangeNotifier2 {
       await updatePromoterScoreRecord(silentFail: false);
       // ignore: avoid_print
       print("Promoter Score Submitted ($score)");
+      if (score != null) {
+        _services.wiredashWidget.listeners?.onSubmitPromoterScore(score!);
+      }
       unawaited(_services.syncEngine.onSubmitPromoterScore());
     } catch (e, stack) {
       _submissionError = e;
