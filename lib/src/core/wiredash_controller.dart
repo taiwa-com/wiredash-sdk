@@ -350,6 +350,15 @@ class WiredashController {
 
 /// Methods for promoter score related features
 extension PromoterScoreWiredash on WiredashController {
+  /// Returns true when the next promoter score survey is due.
+  Future<bool> shouldShowPromoterSurvey({PsOptions? options}) async {
+    final trigger = _model.services.psTrigger;
+    final shouldShow = await trigger.shouldShowPromoterSurvey(
+      options: options ?? _model.psOptions,
+    );
+    return shouldShow;
+  }
+
   /// Probably shows the Promoter Score survey depending on [options],
   /// specifically [PsOptions.frequency], [PsOptions.initialDelay] and
   /// [PsOptions.minimumAppStarts] settings.
