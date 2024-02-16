@@ -359,6 +359,17 @@ extension PromoterScoreWiredash on WiredashController {
     return shouldShow;
   }
 
+  /// Skips promoter score survey until the next time it was to be shown.
+  ///
+  /// Internally, this method calls
+  /// [WiredashTelemetry.onOpenedPromoterScoreSurvey] to fool Wiredash into
+  /// thinking that the survey was shown, thus restarting the timer for the
+  /// next survey.
+  Future skipThisPromoterSurvey() async {
+    await _model.services.psTrigger.wiredashTelemetry
+        .onOpenedPromoterScoreSurvey();
+  }
+
   /// Probably shows the Promoter Score survey depending on [options],
   /// specifically [PsOptions.frequency], [PsOptions.initialDelay] and
   /// [PsOptions.minimumAppStarts] settings.
